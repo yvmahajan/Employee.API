@@ -1,0 +1,17 @@
+c:\Users\yoges\documents\visual studio 2015\Projects\Employee.API\Employee.Entities\bin\Debug\Employee.Entities.dll
+c:\Users\yoges\documents\visual studio 2015\Projects\Employee.API\Employee.Entities\bin\Debug\Employee.Entities.pdb
+c:\Users\yoges\documents\visual studio 2015\Projects\Employee.API\Employee.Entities\obj\Debug\Employee.Entities.csprojResolveAssemblyReference.cache
+c:\Users\yoges\documents\visual studio 2015\Projects\Employee.API\Employee.Entities\obj\Debug\Employee.Entities.dll
+c:\Users\yoges\documents\visual studio 2015\Projects\Employee.API\Employee.Entities\obj\Debug\Employee.Entities.pdb
+c:\Users\yoges\documents\visual studio 2015\Projects\Employee.API\Employee.Entities\bin\Debug\Antlr3.Runtime.dll
+c:\Users\yoges\documents\visual studio 2015\Projects\Employee.API\Employee.Entities\bin\Debug\FluentNHibernate.dll
+c:\Users\yoges\documents\visual studio 2015\Projects\Employee.API\Employee.Entities\bin\Debug\Iesi.Collections.dll
+c:\Users\yoges\documents\visual studio 2015\Projects\Employee.API\Employee.Entities\bin\Debug\NHibernate.dll
+c:\Users\yoges\documents\visual studio 2015\Projects\Employee.API\Employee.Entities\bin\Debug\Remotion.Linq.dll
+c:\Users\yoges\documents\visual studio 2015\Projects\Employee.API\Employee.Entities\bin\Debug\Remotion.Linq.EagerFetching.dll
+c:\Users\yoges\documents\visual studio 2015\Projects\Employee.API\Employee.Entities\bin\Debug\Antlr3.Runtime.xml
+c:\Users\yoges\documents\visual studio 2015\Projects\Employee.API\Employee.Entities\bin\Debug\FluentNHibernate.xml
+c:\Users\yoges\documents\visual studio 2015\Projects\Employee.API\Employee.Entities\bin\Debug\Iesi.Collections.xml
+c:\Users\yoges\documents\visual studio 2015\Projects\Employee.API\Employee.Entities\bin\Debug\NHibernate.xml
+c:\Users\yoges\documents\visual studio 2015\Projects\Employee.API\Employee.Entities\bin\Debug\Remotion.Linq.xml
+c:\Users\yoges\documents\visual studio 2015\Projects\Employee.API\Employee.Entities\bin\Debug\Remotion.Linq.EagerFetching.xml
