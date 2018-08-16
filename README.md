@@ -1,4 +1,5 @@
 # RESTful Web API for Employee
+You can use **Fiddler or SoapUI** tool to test API.
 
 1. GET http://BaseURL/api/employee
    Return all employee data.
@@ -26,3 +27,5 @@
   - Logging : Used Elmah logger tool.
   - Exception handling : Implemeted "ExceptionFilterAttribute" to handle exception. 
   - SQL server db : Create "EmployeeDB" database with "Employee" table. find script file under /DB/DBScript.sql
+
+
