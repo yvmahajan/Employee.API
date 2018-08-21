@@ -28,4 +28,6 @@ You can use **Fiddler or SoapUI** tool to test API.
   - Exception handling : Implemeted "ExceptionFilterAttribute" to handle exception. 
   - SQL server db : Create "EmployeeDB" database with "Employee" table. find script file under /DB/DBScript.sql
 
-
+#### Note:
+Creating multiple employees in the same request is possible by accepting collection of object, but i won't recommend it.
+I will suggest create new "Batch" resource endpoint where you can send multiple sub-requests and get a separate sub-response back for each request.
