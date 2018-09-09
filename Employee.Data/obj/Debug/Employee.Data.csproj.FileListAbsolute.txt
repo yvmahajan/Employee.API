@@ -17,3 +17,22 @@ c:\Users\yoges\documents\visual studio 2015\Projects\Employee.API\Employee.Data\
 c:\Users\yoges\documents\visual studio 2015\Projects\Employee.API\Employee.Data\obj\Debug\Employee.Data.csprojResolveAssemblyReference.cache
 c:\Users\yoges\documents\visual studio 2015\Projects\Employee.API\Employee.Data\obj\Debug\Employee.Data.dll
 c:\Users\yoges\documents\visual studio 2015\Projects\Employee.API\Employee.Data\obj\Debug\Employee.Data.pdb
+E:\GitHub_Drive\Employee.API\Employee.Data\obj\Debug\Employee.Data.csprojResolveAssemblyReference.cache
+E:\GitHub_Drive\Employee.API\Employee.Data\obj\Debug\Employee.Data.dll
+E:\GitHub_Drive\Employee.API\Employee.Data\obj\Debug\Employee.Data.pdb
+E:\GitHub_Drive\Employee.API\Employee.Data\bin\Debug\Employee.Data.dll
+E:\GitHub_Drive\Employee.API\Employee.Data\bin\Debug\Employee.Data.pdb
+E:\GitHub_Drive\Employee.API\Employee.Data\bin\Debug\Antlr3.Runtime.dll
+E:\GitHub_Drive\Employee.API\Employee.Data\bin\Debug\Employee.Entities.dll
+E:\GitHub_Drive\Employee.API\Employee.Data\bin\Debug\FluentNHibernate.dll
+E:\GitHub_Drive\Employee.API\Employee.Data\bin\Debug\Iesi.Collections.dll
+E:\GitHub_Drive\Employee.API\Employee.Data\bin\Debug\NHibernate.dll
+E:\GitHub_Drive\Employee.API\Employee.Data\bin\Debug\Remotion.Linq.dll
+E:\GitHub_Drive\Employee.API\Employee.Data\bin\Debug\Remotion.Linq.EagerFetching.dll
+E:\GitHub_Drive\Employee.API\Employee.Data\bin\Debug\Employee.Entities.pdb
+E:\GitHub_Drive\Employee.API\Employee.Data\bin\Debug\Antlr3.Runtime.xml
+E:\GitHub_Drive\Employee.API\Employee.Data\bin\Debug\FluentNHibernate.xml
+E:\GitHub_Drive\Employee.API\Employee.Data\bin\Debug\Iesi.Collections.xml
+E:\GitHub_Drive\Employee.API\Employee.Data\bin\Debug\NHibernate.xml
+E:\GitHub_Drive\Employee.API\Employee.Data\bin\Debug\Remotion.Linq.xml
+E:\GitHub_Drive\Employee.API\Employee.Data\bin\Debug\Remotion.Linq.EagerFetching.xml

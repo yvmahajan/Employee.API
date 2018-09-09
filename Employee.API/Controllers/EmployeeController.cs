@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -13,6 +12,9 @@ namespace Employee.API.Controllers
     public class EmployeeController : ApiController
     {
         private readonly IEmployeeInfoService employeeService;
+        public EmployeeController()
+        {
+        }
         public EmployeeController(IEmployeeInfoService _employeeService)
         {
             employeeService = _employeeService;
@@ -49,9 +51,9 @@ namespace Employee.API.Controllers
                 employeeService.CreateEmployee(value);
                 return Request.CreateResponse(HttpStatusCode.OK, "New record saved successfully." );
             }
-            catch(Exception ex)
+            catch
             {
-                return Request.CreateResponse(HttpStatusCode.InternalServerError, "An error occured while saving data.");
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, "An error occured while creating record.");
             }
         }
 
@@ -64,9 +66,9 @@ namespace Employee.API.Controllers
                 employeeService.UpdateEmployee(value);
                 return Request.CreateResponse(HttpStatusCode.OK, "Record updated successfully.");
             }
-            catch (Exception ex)
+            catch
             {
-                return Request.CreateResponse(HttpStatusCode.InternalServerError, "An error occured while saving data.");
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, "An error occured while updating record.");
             }
         }
 
@@ -78,9 +80,9 @@ namespace Employee.API.Controllers
                 employeeService.DeleteEmployee(id);
                 return Request.CreateResponse(HttpStatusCode.OK, "Record deleted successfully.");
             }
-            catch (Exception ex)
+            catch
             {
-                return Request.CreateResponse(HttpStatusCode.InternalServerError, "An error occured while saving data.");
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, "An error occured while deleting record.");
             }
         }
     }

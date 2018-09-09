@@ -1,3 +1,4 @@
+using Employee.Data.DBSession;
 using NHibernate;
 using NHibernate.Linq;
 using NHibernate.Transform;
@@ -8,74 +9,101 @@ using System.Linq.Expressions;
 
 namespace Employee.Data.Infrastructure
 {
-    public abstract class RepositoryBase<T> where T : class
+    public class RepositoryBase<T> : IDisposable where T : class 
     {
         #region Properties
-        private ISession dataContext;
-        protected IDbFactory DbFactory
+        protected ISession _session = null;
+        protected ITransaction _transaction = null;
+
+        public RepositoryBase()
         {
-            get;
-            private set;
+            _session = Database.OpenSession();
         }
-        protected ISession DbContext
+        public RepositoryBase(ISession session)
         {
-            get { return dataContext ?? (dataContext = DbFactory.Init()); }
-        }
-        #endregion
-        protected RepositoryBase(IDbFactory dbFactory)
-        {
-            DbFactory = dbFactory;
-        }
-        #region Implementation
-        public virtual void Add(T entity)
-        {
-            DbContext.Save(entity);
-        }
-        public virtual void Update(T entity)
-        {
-            DbContext.Update(entity);
-        }
-        public virtual void Delete(T entity)
-        {
-            DbContext.Delete(entity);
-        }
-        public virtual void Delete<TV>(TV id)
-        {
-            DbContext.Delete(DbContext.Load<T>(id));
-        }
-        public virtual void Delete(Expression<Func<T, bool>> restriction)
-        {
-            IEnumerable<T> objects = DbContext.QueryOver<T>().Where(restriction).List();
-            foreach (T obj in objects)
-                DbContext.Delete(obj);
-        }
-        public virtual T GetById<K>(K id)
-        {
-            return DbContext.Get<T>(id);
-        }
-        public virtual IQueryable<T> GetAll()
-        {
-            return DbContext.Query<T>();
-        }
-        public virtual IEnumerable<T> GetMany(Expression<Func<T, bool>> restriction)
-        {
-            return DbContext.QueryOver<T>().Where(restriction).List();
-        }
-        public virtual T Get(Expression<Func<T, bool>> restriction)
-        {
-            return DbContext.QueryOver<T>().Where(restriction).SingleOrDefault<T>();
+            _session = session;
         }
         #endregion
 
+        #region Transaction and Session Management Methods
+        public void BeginTransaction()
+        {
+            _transaction = _session.BeginTransaction();
+        }
+        public void CommitTransaction()
+        {
+            // _transaction will be replaced with a new transaction            // by NHibernate, but we will close to keep a consistent state.
+            _transaction.Commit();
+            CloseTransaction();
+        }
+        public void RollbackTransaction()
+        {
+            // _session must be closed and disposed after a transaction            // rollback to keep a consistent state.
+            _transaction.Rollback();
+            CloseTransaction();
+            CloseSession();
+        }
+        private void CloseTransaction()
+        {
+            _transaction.Dispose();
+            _transaction = null;
+        }
+        private void CloseSession()
+        {
+            _session.Close();
+            _session.Dispose();
+            _session = null;
+        }
+        #endregion
+
+        #region IRepository Members
+        public virtual void Add(T entity)
+        {
+            _session.Save(entity);
+        }
+        public virtual void Update(T entity)
+        {
+            _session.Update(entity);
+        }
+        public virtual void Delete(T entity)
+        {
+            _session.Delete(entity);
+        }
+        public virtual void Delete<TV>(TV id)
+        {
+            _session.Delete(_session.Load<T>(id));
+        }
+        public virtual void Delete(Expression<Func<T, bool>> restriction)
+        {
+            IEnumerable<T> objects = _session.QueryOver<T>().Where(restriction).List();
+            foreach (T obj in objects)
+                _session.Delete(obj);
+        }
+        public virtual T GetById<K>(K id)
+        {
+            return _session.Get<T>(id);
+        }
+        public virtual IQueryable<T> GetAll()
+        {
+            return _session.Query<T>();
+        }
+        public virtual IEnumerable<T> GetMany(Expression<Func<T, bool>> restriction)
+        {
+            return _session.QueryOver<T>().Where(restriction).List();
+        }
+        public virtual T Get(Expression<Func<T, bool>> restriction)
+        {
+            return _session.QueryOver<T>().Where(restriction).SingleOrDefault<T>();
+        }
         public IEnumerable<T> ExecuteSQLQuery(string SQLQuery)
         {
-            IEnumerable<T> records = DbContext.CreateSQLQuery(SQLQuery)
+            IEnumerable<T> records = _session.CreateSQLQuery(SQLQuery)
                                .AddEntity(typeof(T)).List<T>();
             return records;
         }
         public IList<T> ExecuteStoredProcedure(string SPCommond, Dictionary<string, string> Parameters)
         {
-            ISQLQuery spSQLQuery = DbContext.CreateSQLQuery(SPCommond);
+            ISQLQuery spSQLQuery = _session.CreateSQLQuery(SPCommond);
             IQuery spQuery = spSQLQuery.SetResultTransformer(Transformers.AliasToBean<T>());
             foreach (var key in Parameters)
             {
@@ -85,5 +113,23 @@ namespace Employee.Data.Infrastructure
 
             return records;
         }
+        #endregion
+
+        #region IDisposable Members
+        public void Dispose()
+        {
+            if (_transaction != null)
+            {
+                // Commit transaction by default, unless user explicitly rolls it back.
+                // To rollback transaction by default, unless user explicitly commits,                // comment out the line below.
+                CommitTransaction();
+            }
+            if (_session != null)
+            {
+                _session.Flush(); // commit session transactions
+                CloseSession();
+            }
+        }
+        #endregion
     }
 }

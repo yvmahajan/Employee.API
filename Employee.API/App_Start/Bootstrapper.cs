@@ -21,8 +21,8 @@ namespace Employee.API
             var builder = new ContainerBuilder();
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
             //builder.RegisterApiControllers();
-            builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerRequest();
-            builder.RegisterType<DbFactory>().As<IDbFactory>().InstancePerRequest();
+            //builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerRequest();
+            //builder.RegisterType<DbFactory>().As<IDbFactory>().InstancePerRequest();
             //builder.RegisterType<UserService>().As<IUserRepository>().InstancePerRequest();
 
             // Repositories

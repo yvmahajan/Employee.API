@@ -15,3 +15,20 @@ c:\Users\yoges\documents\visual studio 2015\Projects\Employee.API\Employee.Entit
 c:\Users\yoges\documents\visual studio 2015\Projects\Employee.API\Employee.Entities\bin\Debug\NHibernate.xml
 c:\Users\yoges\documents\visual studio 2015\Projects\Employee.API\Employee.Entities\bin\Debug\Remotion.Linq.xml
 c:\Users\yoges\documents\visual studio 2015\Projects\Employee.API\Employee.Entities\bin\Debug\Remotion.Linq.EagerFetching.xml
+E:\GitHub_Drive\Employee.API\Employee.Entities\bin\Debug\Employee.Entities.dll
+E:\GitHub_Drive\Employee.API\Employee.Entities\bin\Debug\Employee.Entities.pdb
+E:\GitHub_Drive\Employee.API\Employee.Entities\bin\Debug\Antlr3.Runtime.dll
+E:\GitHub_Drive\Employee.API\Employee.Entities\bin\Debug\FluentNHibernate.dll
+E:\GitHub_Drive\Employee.API\Employee.Entities\bin\Debug\Iesi.Collections.dll
+E:\GitHub_Drive\Employee.API\Employee.Entities\bin\Debug\NHibernate.dll
+E:\GitHub_Drive\Employee.API\Employee.Entities\bin\Debug\Remotion.Linq.dll
+E:\GitHub_Drive\Employee.API\Employee.Entities\bin\Debug\Remotion.Linq.EagerFetching.dll
+E:\GitHub_Drive\Employee.API\Employee.Entities\bin\Debug\Antlr3.Runtime.xml
+E:\GitHub_Drive\Employee.API\Employee.Entities\bin\Debug\FluentNHibernate.xml
+E:\GitHub_Drive\Employee.API\Employee.Entities\bin\Debug\Iesi.Collections.xml
+E:\GitHub_Drive\Employee.API\Employee.Entities\bin\Debug\NHibernate.xml
+E:\GitHub_Drive\Employee.API\Employee.Entities\bin\Debug\Remotion.Linq.xml
+E:\GitHub_Drive\Employee.API\Employee.Entities\bin\Debug\Remotion.Linq.EagerFetching.xml
+E:\GitHub_Drive\Employee.API\Employee.Entities\obj\Debug\Employee.Entities.csprojResolveAssemblyReference.cache
+E:\GitHub_Drive\Employee.API\Employee.Entities\obj\Debug\Employee.Entities.dll
+E:\GitHub_Drive\Employee.API\Employee.Entities\obj\Debug\Employee.Entities.pdb

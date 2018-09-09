@@ -1,8 +1,11 @@
 ﻿using Elmah;
+using Employee.Data.DBSession;
 using Employee.Data.Infrastructure;
 using Employee.Data.Repositories;
 using Employee.Entities;
+using NHibernate;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Employee.Service
 {
@@ -17,66 +20,83 @@ namespace Employee.Service
     }
     public class EmployeeInfoService : IEmployeeInfoService
     {
-        private readonly IEmployeeInfoRepository EmployeeRepository;
-        private readonly IUnitOfWork UnitOfWork;
-        public EmployeeInfoService(IEmployeeInfoRepository _employeeRepository, IUnitOfWork unitOfWork)
+        //private readonly IEmployeeInfoRepository EmployeeRepository;
+        //private readonly IUnitOfWork UnitOfWork;
+        //public EmployeeInfoService(IEmployeeInfoRepository _employeeRepository, IUnitOfWork unitOfWork)
+        //{
+        //    //this.EmployeeRepository = _employeeRepository;
+        //    //this.UnitOfWork = unitOfWork;
+        //}
+        public EmployeeInfoService()
         {
-            this.EmployeeRepository = _employeeRepository;
-            this.UnitOfWork = unitOfWork;
+            //this.EmployeeRepository = _employeeRepository;
+            //this.UnitOfWork = unitOfWork;
         }
         public IEnumerable<EmployeeInfo> GetEmployeeList()
         {
-            return EmployeeRepository.GetAll();
+            using (var repository = new RepositoryBase<EmployeeInfo>())
+            {
+                return repository.GetAll().ToList();
+            }
         }
         public EmployeeInfo GetEmployee(int id)
         {
-            return EmployeeRepository.GetById(id);
+            using (var repository = new RepositoryBase<EmployeeInfo>())
+            {
+                return repository.GetById(id);
+            }
         }
         public int CreateEmployee(EmployeeInfo Employee)
         {
-            try
+            using (var repository = new RepositoryBase<EmployeeInfo>())
             {
-                this.UnitOfWork.BeginTransaction();
-                EmployeeRepository.Add(Employee);
-                UnitOfWork.Commit();
-            }
-            catch (System.Exception ex)
-            {
-                UnitOfWork.Rollback();
-                ErrorSignal.FromCurrentContext().Raise(ex);
-                throw ex;
+                try
+                {
+                    repository.BeginTransaction();
+                    repository.Add(Employee);
+                }
+                catch (System.Exception ex)
+                {
+                    repository.RollbackTransaction();
+                    ErrorSignal.FromCurrentContext().Raise(ex);
+                    throw ex;
+                }
             }
             return Employee.ID;
         }
         public bool UpdateEmployee(EmployeeInfo Employee)
         {
-            try
+            using (var repository = new RepositoryBase<EmployeeInfo>())
             {
-                this.UnitOfWork.BeginTransaction();
-                EmployeeRepository.Update(Employee);
-                UnitOfWork.Commit();
-            }
-            catch (System.Exception ex)
-            {
-                this.UnitOfWork.Rollback();
-                ErrorSignal.FromCurrentContext().Raise(ex);
-                throw ex;
+                try
+                {
+                    repository.BeginTransaction();
+                    repository.Update(Employee);
+                }
+                catch (System.Exception ex)
+                {
+                    repository.RollbackTransaction();
+                    ErrorSignal.FromCurrentContext().Raise(ex);
+                    throw ex;
+                }
             }
             return true;
         }
         public bool DeleteEmployee(int id)
         {
-            try
+            using (var repository = new RepositoryBase<EmployeeInfo>())
             {
-                this.UnitOfWork.BeginTransaction();
-                EmployeeRepository.Delete(id);
-                UnitOfWork.Commit();
-            }
-            catch (System.Exception ex)
-            {
-                this.UnitOfWork.Rollback();
-                ErrorSignal.FromCurrentContext().Raise(ex);
-                throw ex;
+                try
+                {
+                    repository.BeginTransaction();
+                    repository.Delete(id);
+                }
+                catch (System.Exception ex)
+                {
+                    repository.RollbackTransaction();
+                    ErrorSignal.FromCurrentContext().Raise(ex);
+                    throw ex;
+                }
             }
             return true;
         }

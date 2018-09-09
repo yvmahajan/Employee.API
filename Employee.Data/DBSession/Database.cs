@@ -1,4 +1,4 @@
-using FluentNHibernate.Cfg;
+﻿using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using NHibernate;
 using NHibernate.Tool.hbm2ddl;
@@ -13,26 +13,37 @@ using Employee.Entities;
 
 namespace Employee.Data.DBSession
 {
-    public static class FluentNHibernateHelper
+    public static class Database
     {
-        //add refence: System.Configuration.dll
+        private static ISessionFactory _sessionFactory;
         public static string ConnectionString
         {
             get { return ConfigurationManager.ConnectionStrings["DBConnection"].ConnectionString; }
         }
-        public static ISessionFactory OpenSession()
+        public static ISession OpenSession()
         {
-            ISessionFactory sessionFactory = Fluently.Configure()
-                .Database(MsSqlConfiguration.MsSql2012
-                .ConnectionString(ConnectionString).ShowSql()
-            )
+            return SessionFactory.OpenSession();
+        }
+        private static ISessionFactory SessionFactory
+        {
+            get
+            {
+                if (_sessionFactory == null)
+                {
+                    _sessionFactory = Fluently.Configure()
+                        .Database(MsSqlConfiguration.MsSql2012
+                    .ConnectionString(ConnectionString).ShowSql()
+                    )
             .Mappings(m => m.FluentMappings
                 .Conventions.Add(FluentNHibernate.Conventions.Helpers.DefaultLazy.Never())
                 .AddFromNamespaceOf<EmployeeInfo>())
             .ExposeConfiguration(cfg => new SchemaExport(cfg).Create(false, false))
             .BuildSessionFactory();
-            return sessionFactory;
+                }
+                return _sessionFactory;
+            }
         }
+        
         public static FluentMappingsContainer AddFromNamespaceOf<T>(
             this FluentMappingsContainer fmc)
         {

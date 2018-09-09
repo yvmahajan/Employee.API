@@ -21,3 +21,25 @@ c:\Users\yoges\documents\visual studio 2015\Projects\Employee.API\Employee.Servi
 c:\Users\yoges\documents\visual studio 2015\Projects\Employee.API\Employee.Service\obj\Debug\Employee.Service.pdb
 c:\Users\yoges\documents\visual studio 2015\Projects\Employee.API\Employee.Service\bin\Debug\Elmah.dll
 c:\Users\yoges\documents\visual studio 2015\Projects\Employee.API\Employee.Service\bin\Debug\Elmah.Mvc.dll
+E:\GitHub_Drive\Employee.API\Employee.Service\obj\Debug\Employee.Service.csprojResolveAssemblyReference.cache
+E:\GitHub_Drive\Employee.API\Employee.Service\obj\Debug\Employee.Service.dll
+E:\GitHub_Drive\Employee.API\Employee.Service\obj\Debug\Employee.Service.pdb
+E:\GitHub_Drive\Employee.API\Employee.Service\bin\Debug\Employee.Service.dll
+E:\GitHub_Drive\Employee.API\Employee.Service\bin\Debug\Employee.Service.pdb
+E:\GitHub_Drive\Employee.API\Employee.Service\bin\Debug\Elmah.dll
+E:\GitHub_Drive\Employee.API\Employee.Service\bin\Debug\Elmah.Mvc.dll
+E:\GitHub_Drive\Employee.API\Employee.Service\bin\Debug\Employee.Data.dll
+E:\GitHub_Drive\Employee.API\Employee.Service\bin\Debug\Employee.Entities.dll
+E:\GitHub_Drive\Employee.API\Employee.Service\bin\Debug\FluentNHibernate.dll
+E:\GitHub_Drive\Employee.API\Employee.Service\bin\Debug\Remotion.Linq.dll
+E:\GitHub_Drive\Employee.API\Employee.Service\bin\Debug\Remotion.Linq.EagerFetching.dll
+E:\GitHub_Drive\Employee.API\Employee.Service\bin\Debug\Antlr3.Runtime.dll
+E:\GitHub_Drive\Employee.API\Employee.Service\bin\Debug\Iesi.Collections.dll
+E:\GitHub_Drive\Employee.API\Employee.Service\bin\Debug\Employee.Data.pdb
+E:\GitHub_Drive\Employee.API\Employee.Service\bin\Debug\Employee.Entities.pdb
+E:\GitHub_Drive\Employee.API\Employee.Service\bin\Debug\NHibernate.xml
+E:\GitHub_Drive\Employee.API\Employee.Service\bin\Debug\FluentNHibernate.xml
+E:\GitHub_Drive\Employee.API\Employee.Service\bin\Debug\Remotion.Linq.xml
+E:\GitHub_Drive\Employee.API\Employee.Service\bin\Debug\Remotion.Linq.EagerFetching.xml
+E:\GitHub_Drive\Employee.API\Employee.Service\bin\Debug\Antlr3.Runtime.xml
+E:\GitHub_Drive\Employee.API\Employee.Service\bin\Debug\Iesi.Collections.xml
